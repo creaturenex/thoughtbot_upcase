@@ -9,10 +9,18 @@ class Calculator
   end
 
   def factorial(n)
-    if n < 1
-       1
+    # the issue with recursive is it freezes due to too much memory allocation =
+    # when using large numbers
+    # if n < 1
+    #    1
+    # else
+    #   n * factorial(n - 1)
+    # end
+
+    if n == 0
+      1
     else
-      n * factorial(n - 1)
+      (1..n).reduce(:*)
     end
   end
 end
