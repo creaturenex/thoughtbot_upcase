@@ -48,6 +48,7 @@ class Person
 end
 
 RSpec.describe Person do
+  # consider moving this to a setup method?
   let(:person) {Person.new(first_name: 'Oscar', middle_name: 'M', last_name: 'Romero')}
   let(:person_no_middle_name) {Person.new(first_name: 'Oscar', last_name: 'Romero')}
 
@@ -80,11 +81,11 @@ RSpec.describe Person do
         expect(person_no_middle_name.initials).to eq('OR')
     end
 
-    it 'it returns a string with a length of three if the middle initial not missing' do
+    it 'returns a string with a length of three if the middle initial not missing' do
       expect(person.initials.length).to eq(3)
     end
 
-    it 'it returns a string with a length of two if the middle initial is missing' do
+    it 'returns a string with a length of two if the middle initial is missing' do
       expect(person_no_middle_name.initials.length).to eq(2)
     end
   end
